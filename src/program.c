@@ -7,18 +7,23 @@ int main(int argc, char *argv[]){
 	char buffer[CODESIZE];
 
 	buffer[0] = IADD;
-	buffer[1] = 1; 
-	buffer[2] = 5;
+	buffer[1] = 32; 
+	buffer[2] = 16;
 	buffer[3] = PRINT;
 	buffer[4] = IADD;
-	buffer[5] = 3;
-	buffer[6] = 4;
+	buffer[5] = 32;
+	buffer[6] = 64;
 	buffer[7] = PRINT;
 	buffer[8] = IADD;
-	buffer[9] = 4;
-	buffer[10] = 4;
-	buffer[11] = PRINT;
-	buffer[12] = HALT;
+	buffer[9] = 64;
+	buffer[10] = 64;
+	buffer[11] = BR;
+	buffer[12] = 16;
+	buffer[13] = 0;
+	buffer[14] = 0;
+	buffer[15] = 0;
+	buffer[16] = PRINT;
+	buffer[17] = HALT;
 	
 	FILE *write_ptr;
 	write_ptr = fopen("./build/program.bin","wb");  // w for write, b for binary

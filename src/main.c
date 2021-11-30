@@ -47,30 +47,30 @@ int main(int argc, char *argv[] ) {
 	// Decode and Execute
 	while (bytecode != HALT && ip < CODESIZE){ 	
 		// increment Instruction Pointer
-		ip++;
+		//ip++;
 
 		switch(bytecode){ 
 
 			case HALT:
 				return 0;
 			case IADD:
-				stack[sp++] = code[ip++];
-				stack[sp] = code[ip++];
+				stack[sp++] = code[++ip];
+				stack[sp] = code[++ip];
 				stack[sp] = stack[sp--] + stack[sp--];
+				ip++;
 				break;
 			case PRINT:
 				printf("%d\n", stack[sp]);
+				ip++;
 				break;
+			case BR:
+				ip=code[++ip];
+				break;
+
 			default: exit(1);
 		}
-
-
-
-		//stack[++sp];
-
 		// Fetch Next Instruction
 		bytecode = code[ip];
-
 	}
 	return 0;
 }

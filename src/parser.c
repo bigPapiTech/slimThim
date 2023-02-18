@@ -1,4 +1,3 @@
-/*
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -8,6 +7,19 @@
 #include "parser.h"
 #include "vm.h"
 
+Expr *parse(Expr *expr, Token *t){
+  Expr *e = malloc(sizeof(Expr*));
+  if(e == NULL){
+    printf("Memory Error at parse function\n");
+  }
+
+  e->token = t;
+  e->left = expr;
+  e->right = NULL;
+  return e;
+}
+
+/*
 Token **pt = NULL;
 int ip = 0;
 __int8_t code[CODESIZE] = {'\0'};     // Code memory

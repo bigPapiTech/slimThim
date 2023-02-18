@@ -43,6 +43,9 @@ int main(int argc, char *argv[]) {
     printf("WC: %d ", WC);
     printf("LC: %d ", LC);
     printf("\n\n");
+
+    Token *t = newToken(T_ID, &sym_tbl[SYM_TBL_ID]);
+
   }
   return 0;
 }

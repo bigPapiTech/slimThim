@@ -1,0 +1,9 @@
+Operators Associativity NonTerminalUsed
++, -      LEFT          E
+*, /      LEFT          T
+
+F = non terminal, generating basic units
+
+E -> E + T | E - T / T
+T -> T * F | T / F | F
+F -> ( E ) | id

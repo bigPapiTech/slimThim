@@ -17,6 +17,7 @@ char *FORWARD = BUF0;
 char *LEXEME_BEGIN = BUF0;
 
 // DEBUG info
+int DEBUG_TBL_ID = -1;
 int CC = -1;
 int LC = 1;
 int WC = 0;
@@ -121,6 +122,7 @@ get_next_token(){
     }
 
     WC++;
+    DEBUG_TBL_ID++;
     // Determine token
     switch (C) {
       case '\n': LC++; WC = 1; CC = 1; SYM_STATE = T_NEW_LINE; SYM_LENGTH = 1;  break;

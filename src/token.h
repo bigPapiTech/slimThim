@@ -4,6 +4,9 @@
 #ifndef SYMTBL_H
 #include "symtbl.h"
 #endif
+#ifndef DEBUGTBL_H
+#include "debugtbl.h"
+#endif
 
 #ifndef TOKEN_H
 #define TOKEN_H
@@ -12,11 +15,11 @@
 typedef struct Token {
   int name;
   sym_row *symbol;
-  //debug_row *debug;
+  debug_row *debug;
 } Token;
 
 
-Token *newToken(int, sym_row*);
+Token *newToken(int, sym_row*, debug_row*);
 const char *get_token_name(int token);
 
 /*

@@ -4,7 +4,7 @@
 #include "helper.h"
 #include "token.h"
 
-Token *newToken(int name, sym_row* symbol){
+Token *newToken(int name, sym_row *symbol, debug_row *debug){
   Token *t = malloc(sizeof(Token));
   if(t == NULL){
     printf("Memory Error newToken\n");
@@ -12,6 +12,7 @@ Token *newToken(int name, sym_row* symbol){
   }
   t->name = name;
   t->symbol = symbol;
+  t->debug = debug;
   return t;
 }
 

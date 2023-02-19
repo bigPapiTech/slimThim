@@ -26,6 +26,7 @@ extern int WC;
 
 // Token State
 extern int SYM_TBL_ID;
+extern int DEBUG_TBL_ID;
 extern int SYM_STATE;
 extern int SYM_LENGTH;
 extern char **ATTRIBUTE;

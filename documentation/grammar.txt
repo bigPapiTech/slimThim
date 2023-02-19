@@ -1,9 +1,92 @@
-Operators Associativity NonTerminalUsed
-+, -      LEFT          E
-*, /      LEFT          T
+############################
+### Context Free Grammar ###
+############################
 
-F = non terminal, generating basic units
+### set of terminals 
+  T_NEW_LINE
+  T_WHITE_SPACE
+  T_SEMICOLON
+  T_IF
+  T_THEN
+  T_ELSE
+  T_CLASS
+  T_FALSE
+  T_FUN
+  T_FOR
+  T_NIL
+  T_PRINT
+  T_RETURN
+  T_SUPER
+  T_THIS
+  T_TRUE
+  T_VAR
+  T_WHILE
+  T_LEFT_PAREN
+  T_RIGHT_PAREN
+  T_LEFT_BRACE
+  T_RIGHT_BRACE
+  T_COMMA
+  T_DOT
+  T_MINUS
+  T_PLUS
+  T_SLASH
+  T_STAR
+  T_GROUPING
+  T_NEW_LINE
+  T_WHITE_SPACE
+  T_SEMICOLON
+  T_IF
+  T_THEN
+  T_ELSE
+  T_CLASS
+  T_FALSE
+  T_FUN
+  T_FOR
+  T_NIL
+  T_PRINT
+  T_RETURN
+  T_SUPER
+  T_THIS
+  T_TRUE
+  T_VAR
+  T_WHILE
+  T_LEFT_PAREN
+  T_RIGHT_PAREN
+  T_LEFT_BRACE
+  T_RIGHT_BRACE
+  T_COMMA
+  T_DOT
+  T_MINUS
+  T_PLUS
+  T_SLASH
+  T_STAR
+  T_BANG
+  T_BANG_EQUAL
+  T_EQUAL
+  T_EQUAL_EQUAL
+  T_GREATER
+  T_GREATER_EQUAL
+  T_LESS
+  T_LESS_EQUAL
+  T_OR
+  T_AND
+  T_ID
+  T_NUMBER
 
-E -> E + T | E - T | T
-T -> T * F | T / F | F
-F -> ( E ) | id
+
+### set of productions
+  stmt      ->  T_ID = expr T_SEMICOLON
+              | T_IF T_LEFT_PAREN expr T_RIGHT_PAREN stmt
+              | T_IF T_LEFT_PAREN expr T_RIGHT_PAREN stmt T_ELSE stmt
+              | T_WHILE T_LEFT_PAREN expr T_RIGHT_PAREN stmt
+              | T_LEFT_BRACE stmts T_RIGHT_BRACE
+              | { stmt }
+  stmts     ->  stmts stmt
+              | e
+  call      ->  T_ID T_LEFT_PAREN optparams T_RIGHT_PAREN
+  optparams ->  params | e
+  params    ->  params, param | param
+
+  expr      ->  expr T_PLUS term | expr T_MINUS term | term
+  term      ->  term T_STAR factor | term T_SLASH factor | factor
+  factor    ->  T_NUMBER | T_LEFT_PAREN expr T_RIGHT_PAREN

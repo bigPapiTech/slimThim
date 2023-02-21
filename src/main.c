@@ -32,6 +32,9 @@ int main(int argc, char *argv[]) {
     printf("Mem Error creating symtbl");
     exit(-1);
   }
+
+  Expr *e = NULL;
+
   for(int i = get_next_token(); i != -1; i = get_next_token()){
     insert_sym_tbl(sym_tbl, SYM_TBL_ID, *ATTRIBUTE, SYM_LENGTH);
     printf("Token: %s, Attribute: %s\n", get_token_name(i), (i == T_ID) ? sym_tbl[SYM_TBL_ID].attribute: "" );
@@ -44,7 +47,7 @@ int main(int argc, char *argv[]) {
     printf("LC: %d ", LC);
     printf("\n\n");
 
-    Token *t = newToken(T_ID, &sym_tbl[SYM_TBL_ID]);
+    e = parse(e, newToken(T_ID, &sym_tbl[SYM_TBL_ID]));
 
   }
   return 0;

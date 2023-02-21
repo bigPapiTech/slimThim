@@ -12,9 +12,10 @@ typedef struct Expr
 {
     struct Expr *left;
     struct Expr *right;
-    Token *operator;
+    Token *token;
 } Expr;
 
+Expr *parse(Expr*, Token*);
 /*
 enum ExprType {
   LITERAL,
@@ -24,7 +25,6 @@ enum ExprType {
 };
 
 
-struct Expr *expression(Token**);
 //void treePrint(Expr *root, int level);
 void generateCode(Expr*);
 //const char* getOperatorTypeName(enum TokenType type);

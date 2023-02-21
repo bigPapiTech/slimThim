@@ -1,26 +1,26 @@
 //#ifndef DEBUGROW_H
 //#include "debugrow.h"
 //#endif
-//#ifndef SYMBOLROW_H
-//#include "symbolrow.h"
-//#endif
+#ifndef SYMTBL_H
+#include "symtbl.h"
+#endif
+
 #ifndef TOKEN_H
 #define TOKEN_H
 
-// Used by the lexer and parser
-
-/*
+// Used by the parser
 typedef struct Token {
   int name;
-  char *lexeme;
-  DebugRow *debug_row;
-  //SymbolRow *symbol_row;
-  char *attribute; 
-  struct Token *prev;
-  struct Token *next;
+  sym_row *symbol;
+  //debug_row *debug;
 } Token;
 
-Token *addToken(Token*, int, int, char*, int, int, int, int);
+
+Token *newToken(int, sym_row*);
+const char *get_token_name(int token);
+
+/*
+
 Token *rewindTokenList(Token *t);     // lex
 void destroyToken(Token*);
 void destroyTokens(Token*);
@@ -78,15 +78,6 @@ enum TokenName {
   T_NUMBER,
 
 };
-/*
- * enum TokenValue {
-  // 
 
-  // Relop 
-
-};
-*/
-
-const char *get_token_name(int token);
 
 #endif

@@ -4,6 +4,18 @@
 #include "helper.h"
 #include "token.h"
 
+Token *newToken(int name, sym_row* symbol){
+  Token *t = malloc(sizeof(Token));
+  if(t == NULL){
+    printf("Memory Error newToken\n");
+    exit(-1);
+  }
+  t->name = name;
+  t->symbol = symbol;
+  return t;
+}
+
+
 const char* get_token_name(int token)
 {
    switch (token)

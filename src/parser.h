@@ -6,6 +6,15 @@
 #endif
 #ifndef PARSER_H 
 #define PARSER_H
+
+
+typedef struct Expr
+{
+    struct Expr *left;
+    struct Expr *right;
+    Token *operator;
+} Expr;
+
 /*
 enum ExprType {
   LITERAL,
@@ -14,13 +23,6 @@ enum ExprType {
   GROUPING
 };
 
-typedef struct Expr
-{
-    struct Expr *left;
-    enum ExprType type;
-    Token *operator;
-    struct Expr *right;
-} Expr;
 
 struct Expr *expression(Token**);
 //void treePrint(Expr *root, int level);

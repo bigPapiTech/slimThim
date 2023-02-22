@@ -18,6 +18,7 @@ void checkInput(int argc){
 }
 
 
+/*
 char *mallocChar(int size){
   char *ptr = malloc(size);
   if(ptr == NULL){
@@ -25,14 +26,16 @@ char *mallocChar(int size){
   }
   return ptr;
 }
-
+*/
+/*
 char *copyStr(char *src){
   int size = (char)strlen(src) + 1;
   char *dst = mallocChar(size);
   strlcpy(dst, src, size);
   return dst;
 }
-
+*/
+/*
 char *copyFpToMem(FILE* fp, int size){
   char *mem = mallocChar(size + 1);// \0
 	int c;
@@ -44,7 +47,8 @@ char *copyFpToMem(FILE* fp, int size){
 	mem[size] = '\0';
 	return mem;
 }
-
+*/
+/*
 FILE* openFile(char *filePath, char *mode){
   FILE *fp = fopen(filePath, mode );
   if (fp == NULL){
@@ -52,14 +56,15 @@ FILE* openFile(char *filePath, char *mode){
   }
   return fp; 
 }
-
+*/
+/*
 int getFileSize(FILE *fp){
   fseek(fp, 0L, SEEK_END);
   int sz = ftell(fp);
   rewind(fp);
   return sz;
 }
-
+*/
 /*
 
 const char* getOperatorTypeName(enum TokenType type)

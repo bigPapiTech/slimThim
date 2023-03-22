@@ -80,9 +80,13 @@
               | T_IF T_LEFT_PAREN expr T_RIGHT_PAREN stmt T_ELSE stmt
               | T_WHILE T_LEFT_PAREN expr T_RIGHT_PAREN stmt
               | T_LEFT_BRACE stmts T_RIGHT_BRACE
-              | { stmt }
   stmts     ->  stmts stmt
               | e
+
+  list      ->  list + list | list - list 
+              | T_LEFT_PARAN list_mbr T_RIGHT_PARAN
+  list_mbr  ->  T_NUMBER 
+
   call      ->  T_ID T_LEFT_PAREN optparams T_RIGHT_PAREN
   optparams ->  params | e
   params    ->  params, param | param

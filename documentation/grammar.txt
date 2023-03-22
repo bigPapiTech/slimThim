@@ -75,7 +75,7 @@
 
 
 ### set of productions
-  stmt      ->  T_ID = expr T_SEMICOLON
+  stmt      ->  T_ID T_EQUAL expr T_SEMICOLON
               | T_IF T_LEFT_PAREN expr T_RIGHT_PAREN stmt
               | T_IF T_LEFT_PAREN expr T_RIGHT_PAREN stmt T_ELSE stmt
               | T_WHILE T_LEFT_PAREN expr T_RIGHT_PAREN stmt
@@ -83,9 +83,8 @@
   stmts     ->  stmts stmt
               | e
 
-  list      ->  list + list | list - list 
-              | T_LEFT_PARAN list_mbr T_RIGHT_PARAN
-  list_mbr  ->  T_NUMBER 
+  list      ->  T_LEFT_PARAN list_mbr T_RIGHT_PARAN
+  list_mbr  ->  list_mbr + list_mbr | list_mbr - list_mbr | T_NUMBER | e
 
   call      ->  T_ID T_LEFT_PAREN optparams T_RIGHT_PAREN
   optparams ->  params | e
